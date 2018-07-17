@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+    <p>Name: <%= allcats["name"] %></p>
+    <p><img src = "<%= allcats['picsource'] %>"></p>
+    <p>Age:<%= allcats["age"]%></p>
+    <p>Favorite Food:<%= allcats["favoriteFood"]%></p>
+    <ul>
+        <h2>Favorite Sleeping spots </h2>
+        <% for (sleep of  allcats["sleepingSpots"] ) { %>
+            <li>
+                <%= sleep %>
+            </li>
+        <% } %>
+    </ul>
+    </body>
+</html>
