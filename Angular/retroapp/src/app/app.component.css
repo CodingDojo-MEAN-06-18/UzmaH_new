@@ -1,0 +1,6 @@
+.box{
+  height:50px;
+  width:50px;
+  border: 1 px solid purple;
+  display:inline-block;
+}
