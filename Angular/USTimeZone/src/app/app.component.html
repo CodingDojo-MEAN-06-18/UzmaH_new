@@ -1,0 +1,16 @@
+<!--US Timezone Display
+Create an app which displays the current time based on the time-zone the user selects as shown below in the wireframe. The most recent button clicked should appear with a yellow background.
+
+Note: Don't worry about having the time-zone be accurate based on the user's physical location, assume your location to be the origin of all users using your app. As a bonus, attempt to present the accurate time-zone, regardless of where we run this application. The purpose of this assignment is to learn how to use the events, data binding, structural and attribute directives.-->
+
+<h1> {{title}} </h1>
+<div>
+  <button (click) = "onButtonClick('PST')" [ngClass]="{'pressed': isPST}">PST</button>
+  <button (click) = "onButtonClick('MST')" [ngClass]="{'pressed': isMST}">MST</button>
+  <button (click) = "onButtonClick('CST')" [ngClass]="{'pressed': isCST}">CST</button>
+  <button (click) = "onButtonClick('EST')" [ngClass]="{'pressed': isEST}">EST</button>
+</div>
+<div>
+  <h1>{{curDate | date:'medium'}}</h1>
+</div>
+
