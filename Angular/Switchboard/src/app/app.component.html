@@ -1,0 +1,13 @@
+
+<div class ="container">
+  <h1>Switchboard</h1>
+
+  <div class="boxes" *ngFor ="let item of items; let idx = index">
+      <button *ngIf = "item" (click) = "onClick(idx)">ON</button>
+      <button class = "pressed" *ngIf = "!item" (click) = "onClick(idx)">OFF</button>
+
+  </div>
+</div>
+
+
+
