@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-items  = [true,true,true,true,true,true,true,true];
+items:Array<boolean>  = [true,true,true,true,true,true,true,true];
 
 onClick(idx){
   this.items[idx] = !this.items[idx];
