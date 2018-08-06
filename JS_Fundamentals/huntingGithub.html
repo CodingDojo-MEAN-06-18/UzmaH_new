@@ -10,23 +10,22 @@
     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
     crossorigin="anonymous"></script>
     <script>
-    $(document).ready(function(){
+        $(document).ready(function(){
         $('#get_data').click(function(){
-            // console.log("inside click");
+            console.log("inside click");
             $.get("https://api.github.com/users/husainun",function displayName(data){
                 console.log(data);
                 $('p').append(`My Name is : ${data.login}`);
         });
     });  
     });
+
     </script>
 
 </head>
 <body>
     
         <button id = "get_data">Click me for Github data</button>
-        <p></p>
-        
-    
+        <p></p>   
 </body>
 </html>
