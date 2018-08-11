@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trivia</title>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+        $('#new_questions').click(function(){
+            console.log("inside click");
+            $.get("https://opentdb.com/api.php?amount=10&type=multiple ",function Trivia(data){
+                console.log(data);
+                for(var index = 0 ; index<data.results.length; index++){
+                    $('div').append(`Question: ${index+1} : ${data.results[index].question}`);
+                        for (var j of data.results[index].incorrect_answers)
+                            $('div').append(`<li> ${j} </li>`);
+                        $('div').append(`<li> ${data.results[index].correct_answer}</li>`)
+
+                }
+            });
+        });  
+    });
+    </script>
+
+</head>
+<body>
+        <h1>Trivia</h1>
+        <button id = "new_questions">Click me for Trivia questions</button>
+         <div>
+             <div id = "next">
+             </div>
+         </div>
+</body>
+</html>
