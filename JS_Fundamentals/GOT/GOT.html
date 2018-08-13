@@ -20,13 +20,15 @@
                 });
             
             function displayname(data){
+                $("#titles ").empty();
                 console.log("inside display name");
                 console.log(data);
-                $("#name").append(`Name: ${data.name}`);
-                $("#words").append(`Words: ${data.words}`);
+                $("#name").html(`Name: ${data.name}`);
+                $("#words").html(`Words: ${data.words}`);
+                $("#titles").html(`Title: `);
                 for (title of data.titles){
                     console.log("title",title)
-                    $("#titles").append(`Title:${title}`)
+                    $("#titles ").append(`${title}`)
                 }
             }
         });
@@ -64,7 +66,7 @@
             <h4 id = "words"></h4>
             <h4 id = "titles"></h4>
 
-            </div>
+
         </fieldset>
     </section>
 
