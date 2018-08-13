@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Game of Thrones</title>
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+    </script>
+    <script>
+        $(document).ready(function(){
+                $('.house_images').click(function(){
+                var id = $(this).attr("pid");
+                console.log("id = ",id);
+                $.get(`https://anapioficeandfire.com/api/houses/${id}`,displayname);
+                
+                });
+            
+            function displayname(data){
+                console.log("inside display name");
+                console.log(data);
+                $("#name").append(`Name: ${data.name}`);
+                $("#words").append(`Words: ${data.words}`);
+                for (title of data.titles){
+                    console.log("title",title)
+                    $("#titles").append(`Title:${title}`)
+                }
+            }
+        });
+    </script>
+    <style>
+        #got{
+            margin:0px auto;
+
+        }
+        .house_images{
+            width: 100px;
+            height:100px;
+            margin:20px;
+        }
+        #house_details{
+            width:500px;
+            /* height:300px; */
+            /* border:2px solid black; */
+        }
+    </style>
+    
+</head>
+<body>
+    <div id = "got">
+        <h1>Game of Thrones</h1>
+        <img class = "house_images" pid = "10" src="./Images/baratheon.png" alt="baratheon"> 
+        <img class = "house_images" pid = "2" src="./Images/lannister.jpg" alt="lannister"> 
+        <img class = "house_images" pid = "298"src="./Images/stark.jpg" alt="stark"> 
+        <img class = "house_images" pid = "378" src="./Images/targaryen.jpg" alt="targaryen"> 
+    </div>
+    <section>
+        <fieldset>
+            <legend>House details</legend>
+            <h4 id = "name"></h4>
+            <h4 id = "words"></h4>
+            <h4 id = "titles"></h4>
+
+            </div>
+        </fieldset>
+    </section>
+
+</body>
+</html>
