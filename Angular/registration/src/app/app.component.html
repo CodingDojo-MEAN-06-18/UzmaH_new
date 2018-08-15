@@ -1,0 +1,201 @@
+<section>
+  <fieldset>
+    <div *ngIf = 'form_submitted' class = "submitted">
+      <!-- {{users| json}} -->
+      Thank you for registering with us {{users[users.length -1].fname}}. We just sent you
+      a confirmation email at {{users[users.length -1].email}} and we will send all mail to
+      {{users[users.length -1].street}}, {{users[users.length -1].city}}, {{users[users.length -1].state}}
+
+      <p>Have a nice day!</p>
+    </div>
+    <legend>Registration</legend>
+    <!-- {{userForm.valid | json}} -->
+    <form (submit) = 'onSubmit($event,userForm)' #userForm = 'ngForm'>
+      <div>
+        <label for="">*First Name</label>
+        <input type="text" name="fname"
+        [(ngModel)]='user.fname'
+        #fname = 'ngModel'
+        required>
+        <label *ngIf = '(fname.touched || fname.dirty) && (fname.errors)'>
+          <label *ngIf = 'fname.errors.required' class = "red">
+            First Name is required
+          </label>
+        </label>
+      </div>
+
+      <div>
+        <label for="">*Last Name  </label>
+        <input type="text" name="lname"
+        [(ngModel)]='user.lname'
+        #lname = 'ngModel'
+         required>
+        <label *ngIf = '(lname.touched || lname.dirty) && (lname.errors)'>
+          <label *ngIf = 'lname.errors.required'class = "red">
+            Last  Name is required
+          </label>
+        </label>
+      </div>
+
+      <div>
+        <label for="">*Email  </label>
+        <input type="text" name="email"
+        [(ngModel)]='user.email'
+        #email = 'ngModel'
+        required>
+        <label *ngIf = '(email.touched || email.dirty) && (email.errors)'>
+          <label *ngIf = 'email.errors.required' class = "red">
+            Email is required.
+          </label>
+        </label>
+      </div>
+
+      <div>
+        <label for="">*Password  </label>
+        <input type="password" name="password"
+        [(ngModel)]='user.password'
+        minlength="8"
+        #password = 'ngModel'
+        pattern="^([a-zA-Z0-9@*#]{8,15})$"
+        required>
+        <label *ngIf = '(password.touched || password.dirty) && (password.errors)' class = 'red'>
+          <label *ngIf = 'password.errors.required'>
+            Password is required
+          </label>
+          <label *ngIf = 'password.errors.minlength' class = "red">
+            <!-- {{password.errors.minlength | json}} -->
+              Password must be at least {{password.errors.minlength.requiredLength}} characters. It is {{password.errors.minlength.actualLength}} characters
+          </label>
+        </label>
+      </div>
+
+      <div>
+        <label for="">*Confirm Password  </label>
+        <input type="password" name="password_confirm" [(ngModel)]='user.password_confirm'
+          minlength = '8'
+          #password_confirm = 'ngModel'
+          ng-pattern="password"
+          required>
+         <label *ngIf = '(password_confirm.touched || password_confirm.dirty) && (password_confirm.errors)'>
+            <label *ngIf = 'password_confirm.errors.required' class = "red">
+              Confirmation of Password is required
+            </label>
+            <label *ngIf = 'password_confirm.errors.minlength' class = "red">
+                  Password must be at least {{password_confirm.errors.minlength.requiredLength}} characters. It is {{password_confirm.errors.minlength.actualLength}} characters
+            </label>
+            <label *ngIf = '!(password === password_confirm)' class = 'red'>
+                Password does not match confirm password
+            </label>
+        </label>
+      </div>
+      <div>
+          <label for="">*Street address  </label>
+          <input type="text" name="street" [(ngModel)]='user.street'
+          #street = 'ngModel'
+          required>
+          <label *ngIf = '(street.touched || street.dirty) && (street.errors)'>
+              <label *ngIf = 'street.errors.required' class="red">
+                Street is required
+              </label>
+          </label>
+
+      </div>
+      <div>
+          <label for="">Unit/Apt #  </label>
+          <input type="text" name="apt" [(ngModel)]='user.apt'>
+      </div>
+      <div>
+          <label for="">*City  </label>
+          <input type="text" name="city"
+          [(ngModel)]='user.city'
+          #city = 'ngModel'
+          required>
+          <label *ngIf = '(city.touched || city.dirty) && (city.errors)' >
+              <label *ngIf = 'city.errors.required' class="red">
+                City is required
+              </label>
+          </label>
+      </div>
+      <div>
+          <label for="">*State  </label>
+          <select type="text" name="state"
+            [(ngModel)]='user.state'
+            #state = 'ngModel'
+            required>
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="DC">District Of Columbia</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi</option>
+            <option value="MO">Missouri</option>
+            <option value="MT">Montana</option>
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+            <option value="WA">Washington</option>
+            <option value="WV">West Virginia</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming</option>
+          </select>
+          <label *ngIf = '(state.touched || state.dirty) && (state.errors)'>
+              <label *ngIf = 'state.errors.required' class="red">
+                State is required
+              </label>
+          </label>
+      </div>
+      <div>
+          <label for="">*I'm feeling lucky  </label>
+          <input type="radio" name="lucky" value = "Yes"
+           [(ngModel)]='user.lucky'
+           #yes = 'ngModel'
+           required>Yes
+          <input type="radio" name="lucky" value = "No"
+          [(ngModel)]='user.lucky'
+          #no = 'ngModel'
+          required>No
+          <label *ngIf = '(yes.errors || no.errors) && form_submitted' class="red">
+                Click on the Radio button is required
+          </label>
+
+      </div>
+      <button *ngIf='userForm.valid'>Register</button>
+    </form>
+  </fieldset>
+</section>
