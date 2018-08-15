@@ -1,0 +1,9 @@
+.betabox{
+  width:300px;
+  height:300px;
+  border:1px solid black;
+  display:inline-block;
+  margin:10px auto;
+  margin-left:20px;
+  vertical-align:top;
+}
