@@ -1,0 +1,38 @@
+<section>
+  <fieldset>
+    <legend>Power Component</legend>
+      <label for="">Initial Power Level </label>
+      <select  class = "drop" name="power" [(ngModel)] = "power">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10" selected>10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+      </select>
+      <!-- <input type="number" name="power" min=1 max=100 required [(ngModel)] = "power"> -->
+      <!-- <button  (click) = "onClick(power)">Calculate Powers</button> -->
+    </fieldset>
+  <app-human [mypower] = "power" class = "box" ></app-human>
+  <app-saiyan [mypower] = "power*10" class = "box" ></app-saiyan>
+  <app-supersaiyan [mypower] = "power*90" class = "box" ></app-supersaiyan>
+  <app-supersaiyantwo [mypower] = "power*150" class = "box" ></app-supersaiyantwo>
+  <app-supersaiyanthree [mypower] = "power*250" class = "box" ></app-supersaiyanthree>
+  <app-supersaiyanfour [mypower] = "power*500" class = "box" ></app-supersaiyanfour>
+
+</section>
+
